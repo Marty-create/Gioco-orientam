@@ -1,0 +1,49 @@
+</head>
+<body>
+    <!-- Contenitore per il modulo e le immagini, posizionato in basso a destra -->
+    <div id="right-container">
+        <p>Attrezzi nello zaino.</p>
+
+        <!-- Form di input per il codice -->
+        <input type="text" id="codeInput" placeholder="Codice numerico...">
+        <button onclick="checkCode()">Ottieni</button>
+
+        <!-- Messaggio di errore -->
+        <div id="message" class="message"></div>
+
+        <!-- Contenitore delle immagini -->
+        <div id="image-container">
+            <img src="https://thumbs.dreamstime.com/b/ascia-di-legno-su-fondo-bianco-elemento-per-falegnameria-88179069.jpg" class="image" id="image1" alt="Immagine 1">
+            <img src="https://via.placeholder.com/200" class="image" id="image2" alt="Immagine 2">
+            <img src="https://via.placeholder.com/200" class="image" id="image3" alt="Immagine 3">
+        </div>
+    </div>
+
+    <script>
+        // Codici numerici per sbloccare le immagini
+        var codici = {
+            '1234': 'image1',
+            '5678': 'image2',
+            '91011': 'image3'
+        };
+
+        function checkCode() {
+            // Ottieni il codice numerico inserito
+            var code = document.getElementById("codeInput").value;
+            var message = document.getElementById("message");
+
+            // Controlla se il codice è valido
+            if (codici[code]) {
+                // Sblocca l'immagine corrispondente
+                document.getElementById(codici[code]).style.display = 'block';
+                message.textContent = "";  // Rimuovi eventuali messaggi di errore
+            } else {
+                message.textContent = "Codice errato, riprova!";  // Messaggio di errore
+            }
+
+            // Pulisci il campo di input
+            document.getElementById("codeInput").value = "";
+        }
+    </script>
+</body>
+</html>

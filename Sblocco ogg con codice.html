@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina con Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        /* Stile per il timer in alto a destra */
+        #timer {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">00:00</div>
+
+    <script>
+        var seconds = 0;
+        var minutes = 0;
+        var timerElement = document.getElementById('timer');
+
+        function updateTimer() {
+            // Incrementa i secondi
+            seconds++;
+
+            // Se i secondi superano 59, incrementa i minuti e resetta i secondi
+            if (seconds >= 60) {
+                seconds = 0;
+                minutes++;
+            }
+
+            // Formatta il tempo in MM:SS
+            var formattedTime = (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+            
+            // Aggiorna il contenuto del timer
+            timerElement.textContent = formattedTime;
+        }
+
+        // Imposta il timer per aggiornarsi ogni secondo
+        setInterval(updateTimer, 1000);
+    </script>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina con Foto di Sfondo e Immagini Cliccabili</title>
+    <style>
+        /* Stile per il corpo della pagina */
+        body {
+            background-image: url(https://static.wixstatic.com/media/24a10d_bd2625bbf40241c4bf1e4e1499e20c8e~mv2.jpg); /* Assicurati che il percorso dell'immagine sia corretto */
+            background-size: cover; /* Rende l'immagine di sfondo a copertura intera */
+            background-position: center center; /* Centra l'immagine */
+            height: 100vh; /* Imposta l'altezza della pagina al 100% della finestra */
+            margin: 0; /* Rimuove i margini predefiniti */
+            font-family: Arial, sans-serif; /* Imposta il font per il testo */
+            color: white; /* Imposta il colore del testo a bianco */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Centra verticalmente il contenuto */
+            align-items: center; /* Centra orizzontalmente il contenuto */
+            text-align: center; /* Centra il testo */
+	    padding-top: 30px; /* Aggiungi un po' di spazio sopra */
+        }
+
+        /* Stile per il titolo */
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        /* Stile per il contenitore delle immagini cliccabili */
+        .image-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Stile per le immagini cliccabili */
+        .image-links img {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Effetto hover sulle immagini */
+        .image-links img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Rende i link cliccabili come blocchi */
+        .image-links a {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Benvenuto nella Mia Pagina!</h1>
+    <div class="image-links">
+        <a href="https://www.link1.com" target="_blank">
+            <img src="immagine1.jpg" alt="Immagine 1">
+        </a>
+        <a href="https://www.link2.com" target="_blank">
+            <img src="immagine2.jpg" alt="Immagine 2">
+        </a>
+        <a href="https://www.link3.com" target="_blank">
+            <img src="immagine3.jpg" alt="Immagine 3">
+        </a>
+    </div>
+    <h2>Clicca sull'immagine per visitare una pagina casuale!</h2>
+        <a id="linkCasuale" href="#" target="_blank">Vai alla pagina casuale</a>
+
+    <script>
+        // Lista di URL o pagine HTML
+        var pagine = [
+            "Negozio1.html",   // Un file HTML locale
+            "https://www.example.com", // Un URL esterno
+            "https://www.wikipedia.org", // Un altro URL esterno
+        ];
+
+        // Scegli un URL casuale dalla lista
+        var paginaCasuale = pagine[Math.floor(Math.random() * pagine.length)];
+
+        // Imposta il link casuale sull'elemento <a>
+        document.getElementById("linkCasuale").href = paginaCasuale;
+
+    </script>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sblocca Immagini con Codici Numerici</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Stile per il contenitore del modulo e delle immagini, posizionato in basso a destra */
+        #right-container {
+            position: fixed;
+            bottom: 5px;  /* Distanza dal fondo della pagina */
+            right: 5px;   /* Distanza dal lato destro della pagina */
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 1000;  /* Assicurati che sia sopra gli altri contenuti */
+        }
+
+        #image-container {
+           display: flex;
+            justify-content: right;
+            gap: 10px;
+            margin-top: 5px;
+            flex-wrap: wrap; /* Consente di avere più righe di immagini */
+        }
+
+        .image {
+            display: none; /* Le immagini sono nascoste di default */
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1rem;
+            margin: 20px 0;
+            width: 250px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            color: red;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Contenitore per il modulo e le immagini, posizionato in basso a destra -->
+    <div id="right-container">
+        <p>Attrezzi nello zaino.</p>
+
+        <!-- Form di input per il codice -->
+        <input type="text" id="codeInput" placeholder="Codice numerico...">
+        <button onclick="checkCode()">Ottieni</button>
+
+        <!-- Messaggio di errore -->
+        <div id="message" class="message"></div>
+
+        <!-- Contenitore delle immagini -->
+        <div id="image-container">
+            <img src="https://thumbs.dreamstime.com/b/ascia-di-legno-su-fondo-bianco-elemento-per-falegnameria-88179069.jpg" class="image" id="image1" alt="Immagine 1">
+            <img src="https://via.placeholder.com/200" class="image" id="image2" alt="Immagine 2">
+            <img src="https://via.placeholder.com/200" class="image" id="image3" alt="Immagine 3">
+        </div>
+    </div>
+
+    <script>
+        // Codici numerici per sbloccare le immagini
+        var codici = {
+            '1234': 'image1',
+            '5678': 'image2',
+            '91011': 'image3'
+        };
+
+        function checkCode() {
+            // Ottieni il codice numerico inserito
+            var code = document.getElementById("codeInput").value;
+            var message = document.getElementById("message");
+
+            // Controlla se il codice è valido
+            if (codici[code]) {
+                // Sblocca l'immagine corrispondente
+                document.getElementById(codici[code]).style.display = 'block';
+                message.textContent = "";  // Rimuovi eventuali messaggi di errore
+            } else {
+                message.textContent = "Codice errato, riprova!";  // Messaggio di errore
+            }
+
+            // Pulisci il campo di input
+            document.getElementById("codeInput").value = "";
+        }
+    </script>
+</body>
+</html>
